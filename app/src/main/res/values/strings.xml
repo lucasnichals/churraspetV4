@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">churraspetV3</string>
+    <string name="login">Login</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="cadastre_se">Cadastre-se</string>
+    <string name="bem_vindo">Bem-vindo</string>
+    <string name="cadastro">CADASTRO</string>
+    <string name="registrar">REGISTRAR</string>
 </resources>

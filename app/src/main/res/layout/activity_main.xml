@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:src="@drawable/racao"
+        app:layout_constraintEnd_toStartOf="@+id/editP1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="380dp"
+        android:layout_marginEnd="10dp"/>
+
     <EditText
         android:id="@+id/editMenu"
         android:layout_width="308dp"
@@ -29,61 +41,93 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="20dp"
         android:duplicateParentState="true"
-        android:editable="false"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Racao Gato CPET"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/img1"
         app:layout_constraintTop_toBottomOf="@+id/editMenu" />
+
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:src="@drawable/racao_dog"
+        app:layout_constraintEnd_toStartOf="@+id/editP2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="360dp"
+        android:layout_marginEnd="10dp"/>
+
 
     <EditText
         android:id="@+id/editP2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="100dp"
-        android:editable="false"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="20dp"
+        android:duplicateParentState="true"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Racao Dog CPET"
+        android:text="Racao Cachorro CPET"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/img1"
         app:layout_constraintTop_toBottomOf="@+id/editP1" />
+
+    <ImageView
+        android:id="@+id/img3"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:src="@drawable/sache_cat"
+        app:layout_constraintEnd_toStartOf="@+id/editP3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="260dp"
+        android:layout_marginEnd="10dp"/>
 
     <EditText
         android:id="@+id/editP3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="100dp"
-        android:editable="false"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="20dp"
+        android:duplicateParentState="true"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Sache CPET Gato"
+        android:text="Sache Gato CPET"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/img3"
         app:layout_constraintTop_toBottomOf="@+id/editP2" />
+
+    <ImageView
+        android:id="@+id/img4"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:src="@drawable/sache_dog"
+        app:layout_constraintEnd_toStartOf="@+id/editP3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="10dp"/>
 
     <EditText
         android:id="@+id/editP4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="343dp"
-        android:editable="false"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="20dp"
+        android:duplicateParentState="true"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Sache CPET Dog"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Sache Cachorro CPET"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editP3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="@id/img4"
+        app:layout_constraintTop_toBottomOf="@+id/editP3"/>
 
     <Button
         android:id="@+id/bComprar"
@@ -103,7 +147,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editP4" />
+        app:layout_constraintTop_toBottomOf="@id/editP3" />
 
     <TextView
         android:id="@+id/textV1"
@@ -122,7 +166,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="85dp"
         android:layout_marginEnd="85dp"
         android:text="38.00"
         app:layout_constraintEnd_toEndOf="parent"
@@ -134,7 +178,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="95dp"
         android:layout_marginEnd="80dp"
         android:text="5.00"
         app:layout_constraintEnd_toEndOf="parent"
@@ -146,7 +190,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="95dp"
         android:layout_marginEnd="80dp"
         android:text="5.50"
         app:layout_constraintEnd_toEndOf="parent"
