@@ -16,6 +16,8 @@ public class carrinho extends AppCompatActivity {
     private int qtde1 = 0, qtde2 = 0, qtde3 = 0, qtde4 = 0;
     private float total1 = 0, total2 = 0, total3 = 0, total4 = 0;
 
+    AcessoBD acessoBD;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +95,25 @@ public class carrinho extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float valorTotal = total1 + total2 + total3 + total4;
+
+                String nomeUsuario = AcessoBD.USUARIO_SENHA;
+                String senhaUsuario = AcessoBD.USUARIO_SENHA;
+                AcessoBD acessoBD = new AcessoBD(carrinho.this);
+                int usuarioId = acessoBD.getIdUsuario(nomeUsuario, senhaUsuario);
+
+                if (qtde1 > 0) {
+                    acessoBD.registrarVenda(usuarioId, 1, qtde1);
+                }
+                if (qtde2 > 0) {
+                    acessoBD.registrarVenda(usuarioId, 2, qtde2);
+                }
+                if (qtde3 > 0) {
+                    acessoBD.registrarVenda(usuarioId, 3, qtde3);
+                }
+                if (qtde4 > 0) {
+                    acessoBD.registrarVenda(usuarioId, 4, qtde4);
+                }
+
                 Intent intent = new Intent(carrinho.this, finalizar.class);
                 intent.putExtra("valorTotal", String.valueOf(valorTotal));
                 startActivity(intent);

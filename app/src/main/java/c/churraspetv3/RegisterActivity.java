@@ -25,16 +25,23 @@ public class RegisterActivity extends AppCompatActivity {
         btn_cadastro_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Usuario usuario = null;
-                try {
-                    usuario = new Usuario(-1,
-                            et_cadastro_username.getText().toString(),
-                            et_cadastro_password.getText().toString());
-                    boolean sucesso = acessoBD.adicionarUsuario(usuario);
-                    Toast.makeText(RegisterActivity.this, "Cadastrado com sucesso: " + sucesso, Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    Toast.makeText(RegisterActivity.this, "Erro na criação do usuário!", Toast.LENGTH_LONG).show();
-                    usuario = new Usuario(-1, "error", "error");
+                String username = et_cadastro_username.getText().toString();
+                String password = et_cadastro_password.getText().toString();
+
+                boolean usuarioExiste = acessoBD.verificarUsuario(username);
+
+                if (usuarioExiste) {
+                    Toast.makeText(RegisterActivity.this, "Usuário já existe", Toast.LENGTH_SHORT).show();
+                } else {
+                    Usuario usuario = null;
+                    try {
+                        usuario = new Usuario(-1, username, password);
+                        boolean sucesso = acessoBD.adicionarUsuario(usuario);
+                        Toast.makeText(RegisterActivity.this, "Cadastrado com sucesso: " + sucesso, Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(RegisterActivity.this, "Erro na criação do usuário!", Toast.LENGTH_LONG).show();
+                        usuario = new Usuario(-1, "error", "error");
+                    }
                 }
             }
         });
