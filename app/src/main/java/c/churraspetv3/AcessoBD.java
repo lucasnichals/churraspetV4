@@ -5,16 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import androidx.annotation.Nullable;
-
-
 public class AcessoBD extends SQLiteOpenHelper {
     protected static final String TABELA_USUARIO = "TABELA_USUARIO";
     protected static final String USUARIO_ID = "ID";
     protected static final String USUARIO_NOME = "USUARIO_NOME";
     protected static final String USUARIO_SENHA = "USUARIO_SENHA";
-
     protected static final String TABELA_PRODUTO = "TABELA_PRODUTO";
     protected static final String PRODUTO_ID = "ID";
     protected static final String PRODUTO_NOME = "PRODUTO_NOME";
@@ -24,13 +20,12 @@ public class AcessoBD extends SQLiteOpenHelper {
     protected static final String TABELA_VENDA = "TABELA_VENDA";
     protected static final String VENDA_ID = "ID";
 
-
     public AcessoBD(@Nullable Context context) {
         super(context, "ChurrasPetBD", null, 1);
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         String statementUsuario = "CREATE TABLE " + TABELA_USUARIO +
                 " (" + USUARIO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + USUARIO_NOME + " TEXT, " + USUARIO_SENHA + " TEXT)";
@@ -51,11 +46,9 @@ public class AcessoBD extends SQLiteOpenHelper {
                 + "FOREIGN KEY (" + PRODUTO_ID + ") REFERENCES " + TABELA_PRODUTO + "(" + PRODUTO_ID + "))";
         db.execSQL(statementVenda);
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
-
     public boolean adicionarUsuario(Usuario usuario) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -65,7 +58,6 @@ public class AcessoBD extends SQLiteOpenHelper {
         db.close();
         return inserirSucedido != -1;
     }
-
     public boolean verificarCredenciais(String enteredUsername, String enteredPassword) {
         SQLiteDatabase db = this.getReadableDatabase();
         String[] columns = {USUARIO_NOME, USUARIO_SENHA};
