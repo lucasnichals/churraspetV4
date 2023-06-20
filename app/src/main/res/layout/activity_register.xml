@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
+    <ImageView
+        android:id="@+id/ic_register"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_register_person"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <TextView
         android:id="@+id/tv_tittle_register_screen"
         android:layout_width="match_parent"
@@ -15,12 +23,12 @@
         android:layout_marginEnd="18dp"
         android:text="@string/cadastro"
         android:textAlignment="center"
-        android:textColor="@color/purple"
-        android:textSize="28sp"
+        android:textColor="@color/black"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/et_cadastro_username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ic_register"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
@@ -66,10 +74,10 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="120dp"
-        android:background="@color/purple"
         android:text="@string/registrar"
         android:textAllCaps="true"
         android:textSize="20dp"
+        android:backgroundTint="@color/black"
         app:layout_constraintTop_toBottomOf="@id/et_cadastro_password" />
 
 
