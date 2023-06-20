@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import androidx.annotation.Nullable;
 
 
@@ -20,7 +21,6 @@ public class AcessoBD extends SQLiteOpenHelper {
     protected static final String PRODUTO_DESCRICAO = "PRODUTO_DESCRICAO";
     protected static final String PRODUTO_QUANTIDADE = "PRODUTO_QUANTIDADE";
     protected static final String PRODUTO_PRECO = "PRODUTO_PRECO";
-
 
 
     public AcessoBD(@Nullable Context context) {
@@ -41,6 +41,7 @@ public class AcessoBD extends SQLiteOpenHelper {
                 + PRODUTO_PRECO + " FLOAT)";
         db.execSQL(statementProdutos);
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }

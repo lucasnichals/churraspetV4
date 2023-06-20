@@ -31,10 +31,10 @@ public class RegisterActivity extends AppCompatActivity {
                             et_cadastro_username.getText().toString(),
                             et_cadastro_password.getText().toString());
                     boolean sucesso = acessoBD.adicionarUsuario(usuario);
-                    Toast.makeText(RegisterActivity.this, "Sucesso:" + sucesso, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Cadastrado com sucesso: " + sucesso, Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     Toast.makeText(RegisterActivity.this, "Erro na criação do usuário!", Toast.LENGTH_LONG).show();
-                    usuario = new Usuario(-1, "erro", "erro");
+                    usuario = new Usuario(-1, "error", "error");
                 }
             }
         });
