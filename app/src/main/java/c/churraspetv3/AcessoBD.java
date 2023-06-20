@@ -15,12 +15,14 @@ public class AcessoBD extends SQLiteOpenHelper {
     protected static final String USUARIO_NOME = "USUARIO_NOME";
     protected static final String USUARIO_SENHA = "USUARIO_SENHA";
 
-    protected static final String TABELA_PRODUTOS = "TABELA_PRODUTOS";
+    protected static final String TABELA_PRODUTO = "TABELA_PRODUTO";
     protected static final String PRODUTO_ID = "ID";
     protected static final String PRODUTO_NOME = "PRODUTO_NOME";
     protected static final String PRODUTO_DESCRICAO = "PRODUTO_DESCRICAO";
     protected static final String PRODUTO_QUANTIDADE = "PRODUTO_QUANTIDADE";
     protected static final String PRODUTO_PRECO = "PRODUTO_PRECO";
+    protected static final String TABELA_VENDA = "TABELA_VENDA";
+    protected static final String VENDA_ID = "ID";
 
 
     public AcessoBD(@Nullable Context context) {
@@ -34,12 +36,20 @@ public class AcessoBD extends SQLiteOpenHelper {
                 + USUARIO_NOME + " TEXT, " + USUARIO_SENHA + " TEXT)";
         db.execSQL(statementUsuario);
 
-        String statementProdutos = "CREATE TABLE " + TABELA_PRODUTOS +
+        String statementProduto = "CREATE TABLE " + TABELA_PRODUTO +
                 " (" + PRODUTO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + PRODUTO_NOME + " TEXT, " + PRODUTO_DESCRICAO + " TEXT, "
                 + PRODUTO_QUANTIDADE + " INT, "
                 + PRODUTO_PRECO + " FLOAT)";
-        db.execSQL(statementProdutos);
+        db.execSQL(statementProduto);
+
+        String statementVenda = "CREATE TABLE " + TABELA_VENDA +
+                " (" + VENDA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + USUARIO_ID + " INTEGER, "
+                + PRODUTO_ID + " INTEGER, "
+                + "FOREIGN KEY (" + USUARIO_ID + ") REFERENCES " + TABELA_USUARIO + "(" + USUARIO_ID + "), "
+                + "FOREIGN KEY (" + PRODUTO_ID + ") REFERENCES " + TABELA_PRODUTO + "(" + PRODUTO_ID + "))";
+        db.execSQL(statementVenda);
     }
 
     @Override
