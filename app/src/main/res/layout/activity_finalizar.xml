@@ -18,12 +18,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPgto" />
 
-    <EditText
+    <TextView
         android:id="@+id/editPgto"
         android:layout_width="385dp"
         android:layout_height="109dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="26dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -54,7 +54,8 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="326dp"
-        android:text="FINALIZAR"
+        android:text="Comprar"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinPgto" />
@@ -67,7 +68,8 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="326dp"
-        android:text="VOLTAR"
+        android:text="revisar"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bFinalizar"
         app:layout_constraintStart_toStartOf="parent"
