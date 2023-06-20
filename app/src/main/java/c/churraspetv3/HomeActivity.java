@@ -19,6 +19,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        getSupportActionBar().hide();
         AcessoBD acessoBD;
         TextView tvRegister = findViewById(R.id.tv_main_cadastro);
         EditText etUsername = findViewById(R.id.et_main_username);

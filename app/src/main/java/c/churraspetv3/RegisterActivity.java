@@ -18,6 +18,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        getSupportActionBar().hide();
         btn_cadastro_registrar = findViewById(R.id.btn_cadastro_registrar);
         et_cadastro_username = findViewById(R.id.et_cadastro_username);
         et_cadastro_password = findViewById(R.id.et_cadastro_password);

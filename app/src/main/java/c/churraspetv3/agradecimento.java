@@ -13,6 +13,7 @@ public class agradecimento extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agradecimento);
+        getSupportActionBar().hide();
         Button bComprarNovamente = findViewById(R.id.bComprarNovamente);
 
         bComprarNovamente.setOnClickListener(new View.OnClickListener() {

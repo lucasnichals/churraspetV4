@@ -25,8 +25,6 @@
         android:layout_marginStart="51dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="52dp"
-        android:ems="10"
-        android:inputType="textPersonName"
         android:text="PRODUTOS DISPONIVEIS"
         android:textAlignment="center"
         android:textSize="24sp"

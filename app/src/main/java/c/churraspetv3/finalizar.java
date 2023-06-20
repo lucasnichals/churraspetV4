@@ -21,10 +21,11 @@ public class finalizar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finalizar);
+        getSupportActionBar().hide();
         String valorTotal = getIntent().getStringExtra("valorTotal");
         textValorTotal = findViewById(R.id.textValorTotal);
         Spinner spinnerPagamento = findViewById(R.id.spinPgto);
-        EditText editPgto = findViewById(R.id.editPgto);
+        TextView editPgto = findViewById(R.id.editPgto);
         Button bFinalizar = findViewById(R.id.bFinalizar);
         Button bVoltar = findViewById(R.id.bVoltar);
 

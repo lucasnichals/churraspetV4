@@ -2,6 +2,7 @@ package c.churraspetv3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +23,8 @@ public class carrinho extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrinho);
-        EditText editCarrinho = findViewById(R.id.editCarrinho);
+        getSupportActionBar().hide();
+        TextView editCarrinho = findViewById(R.id.editCarrinho);
         editCarrinho.setFocusable(false);
         editCarrinho.setClickable(false);
         TextView textP1 = findViewById(R.id.textP1);
