@@ -7,13 +7,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-public class MainActivity extends AppCompatActivity {
+public class ShopActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_shop);
         getSupportActionBar().hide();
         TextView editMenu = findViewById(R.id.editMenu);
         editMenu.setFocusable(false);
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         bComprar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, carrinho.class);
+                Intent intent = new Intent(ShopActivity.this, CarrinhoActivity.class);
                 intent.putExtra("produto1", editP1.getText().toString());
                 intent.putExtra("produto2", editP2.getText().toString());
                 intent.putExtra("produto3", editP3.getText().toString());

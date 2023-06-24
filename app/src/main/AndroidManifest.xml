@@ -12,25 +12,28 @@
         android:theme="@style/Theme.ChurraspetV3"
         tools:targetApi="31">
         <activity
+            android:name=".MenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".UserActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ShopActivity"
             android:exported="false" />
         <activity
-            android:name=".agradecimento"
+            android:name=".AgradecimentoActivity"
             android:exported="false" />
         <activity
-            android:name=".finalizar"
+            android:name=".FinalizarActivity"
             android:exported="false" />
         <activity
-            android:name=".carrinho"
+            android:name=".CarrinhoActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -7,14 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class finalizar extends AppCompatActivity {
+public class FinalizarActivity extends AppCompatActivity {
     private TextView textValorTotal;
 
     @Override
@@ -45,7 +44,7 @@ public class finalizar extends AppCompatActivity {
         bFinalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(finalizar.this, agradecimento.class);
+                Intent intent = new Intent(FinalizarActivity.this, AgradecimentoActivity.class);
                 startActivity(intent);
             }
         });
@@ -53,7 +52,7 @@ public class finalizar extends AppCompatActivity {
         bVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(finalizar.this, carrinho.class);
+                Intent intent = new Intent(FinalizarActivity.this, CarrinhoActivity.class);
                 startActivity(intent);
             }
         });

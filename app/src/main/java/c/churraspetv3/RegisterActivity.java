@@ -2,6 +2,7 @@ package c.churraspetv3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,7 +39,9 @@ public class RegisterActivity extends AppCompatActivity {
                     try {
                         usuario = new Usuario(-1, username, password);
                         boolean sucesso = acessoBD.adicionarUsuario(usuario);
-                        Toast.makeText(RegisterActivity.this, "Cadastrado com sucesso: " + sucesso, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Cadastrado com sucesso: " + sucesso, Toast.LENGTH_LONG).show();
+                        Intent Intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        startActivity(Intent);
                     } catch (Exception e) {
                         Toast.makeText(RegisterActivity.this, "Erro na criação do usuário!", Toast.LENGTH_LONG).show();
                         usuario = new Usuario(-1, "error", "error");

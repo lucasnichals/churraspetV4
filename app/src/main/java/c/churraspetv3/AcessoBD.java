@@ -9,19 +9,22 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AcessoBD extends SQLiteOpenHelper {
     protected static final String TABELA_USUARIO = "TABELA_USUARIO";
-    protected static final String USUARIO_ID = "ID";
+    protected static final String USUARIO_ID = "USUARIO_ID";
     protected static final String USUARIO_NOME = "USUARIO_NOME";
     protected static final String USUARIO_SENHA = "USUARIO_SENHA";
     protected static final String TABELA_PRODUTO = "TABELA_PRODUTO";
-    protected static final String PRODUTO_ID = "ID";
+    protected static final String PRODUTO_ID = "PRODUTO_ID";
     protected static final String PRODUTO_NOME = "PRODUTO_NOME";
     protected static final String PRODUTO_DESCRICAO = "PRODUTO_DESCRICAO";
     protected static final String PRODUTO_QUANTIDADE = "PRODUTO_QUANTIDADE";
     protected static final String PRODUTO_PRECO = "PRODUTO_PRECO";
-    protected static final String TABELA_VENDA = "TABELA_VENDA";
-    protected static final String VENDA_ID = "ID";
+    protected static final String TABELA_VENDAS = "TABELA_VENDAS";
+    protected static final String VENDA_ID = "VENDA_ID";
 
     public AcessoBD(@Nullable Context context) {
         super(context, "ChurrasPetBD", null, 1);
@@ -42,15 +45,13 @@ public class AcessoBD extends SQLiteOpenHelper {
                 + PRODUTO_PRECO + " FLOAT)";
         db.execSQL(statementProduto);
 
-// erro na criacao da tabela vendas -- ver (?)
-
-       // String statementVenda = "CREATE TABLE " + TABELA_VENDA +
-            //    " (" + VENDA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-           //     + USUARIO_ID + " INTEGER, "
-          //      + PRODUTO_ID + " INTEGER, "
-          //      + "FOREIGN KEY (" + USUARIO_ID + ") REFERENCES " + TABELA_USUARIO + "(" + USUARIO_ID + "), "
-          //      + "FOREIGN KEY (" + PRODUTO_ID + ") REFERENCES " + TABELA_PRODUTO + "(" + PRODUTO_ID + "))";
-      //  db.execSQL(statementVenda);
+        String statementVendas = "CREATE TABLE " + TABELA_VENDAS +
+                " (" + VENDA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + USUARIO_ID + " INTEGER, "
+                + PRODUTO_ID + " INTEGER, "
+                + "FOREIGN KEY (" + USUARIO_ID + ") REFERENCES " + TABELA_USUARIO + "(" + USUARIO_ID + "), "
+                + "FOREIGN KEY (" + PRODUTO_ID + ") REFERENCES " + TABELA_PRODUTO + "(" + PRODUTO_ID + "))";
+        db.execSQL(statementVendas);
 
         String nomeUsuario = "admin";
         String senhaUsuatio = "admin";
@@ -153,7 +154,7 @@ public class AcessoBD extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put(USUARIO_ID, usuarioId);
         contentValues.put(PRODUTO_ID, produtoId);
-        long inserirSucedido = db.insert(TABELA_VENDA, null, contentValues);
+        long inserirSucedido = db.insert(TABELA_VENDAS, null, contentValues);
 
         if (inserirSucedido != -1) {
             String whereClause = PRODUTO_ID + " = ?";
@@ -185,4 +186,5 @@ public class AcessoBD extends SQLiteOpenHelper {
         db.close();
         return usuarioId;
     }
+
 }

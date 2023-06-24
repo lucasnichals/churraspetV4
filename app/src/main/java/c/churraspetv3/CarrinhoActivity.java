@@ -2,15 +2,13 @@ package c.churraspetv3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
-public class carrinho extends AppCompatActivity {
+public class CarrinhoActivity extends AppCompatActivity {
 
     private String produto1, produto2, produto3, produto4;
     private String valor1, valor2, valor3, valor4;
@@ -100,7 +98,7 @@ public class carrinho extends AppCompatActivity {
 
                 String nomeUsuario = AcessoBD.USUARIO_SENHA;
                 String senhaUsuario = AcessoBD.USUARIO_SENHA;
-                AcessoBD acessoBD = new AcessoBD(carrinho.this);
+                AcessoBD acessoBD = new AcessoBD(CarrinhoActivity.this);
                 int usuarioId = acessoBD.getIdUsuario(nomeUsuario, senhaUsuario);
 
                 if (qtde1 > 0) {
@@ -116,7 +114,7 @@ public class carrinho extends AppCompatActivity {
                     acessoBD.registrarVenda(usuarioId, 4, qtde4);
                 }
 
-                Intent intent = new Intent(carrinho.this, finalizar.class);
+                Intent intent = new Intent(CarrinhoActivity.this, FinalizarActivity.class);
                 intent.putExtra("valorTotal", String.valueOf(valorTotal));
                 startActivity(intent);
             }
