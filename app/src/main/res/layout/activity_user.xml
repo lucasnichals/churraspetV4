@@ -58,7 +58,7 @@
         android:layout_marginTop="39dp"
         android:layout_marginLeft="20dp"
         android:maxLines="1"
-        android:hint="@string/username"
+        android:hint="@string/Nichals"
         app:layout_constraintTop_toBottomOf="@id/v_user"
         app:layout_constraintStart_toEndOf="@id/profile_img"/>
 
@@ -72,7 +72,7 @@
         android:layout_marginTop="55dp"
         android:layout_marginLeft="20dp"
         android:maxLines="1"
-        android:hint="email@emailteste.com.br"
+        android:hint="@string/nichals_emailteste_com_br"
         app:layout_constraintTop_toBottomOf="@id/tv_user_name"
         app:layout_constraintStart_toEndOf="@id/profile_email"/>
 

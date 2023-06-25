@@ -29,9 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = et_cadastro_username.getText().toString();
                 String password = et_cadastro_password.getText().toString();
-
                 boolean usuarioExiste = acessoBD.verificarUsuario(username);
-
                 if (usuarioExiste) {
                     Toast.makeText(RegisterActivity.this, "Usuário já existe", Toast.LENGTH_SHORT).show();
                 } else {

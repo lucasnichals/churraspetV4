@@ -95,7 +95,6 @@ public class CarrinhoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float valorTotal = total1 + total2 + total3 + total4;
-
                 String nomeUsuario = AcessoBD.USUARIO_SENHA;
                 String senhaUsuario = AcessoBD.USUARIO_SENHA;
                 AcessoBD acessoBD = new AcessoBD(CarrinhoActivity.this);
@@ -113,7 +112,6 @@ public class CarrinhoActivity extends AppCompatActivity {
                 if (qtde4 > 0) {
                     acessoBD.registrarVenda(usuarioId, 4, qtde4);
                 }
-
                 Intent intent = new Intent(CarrinhoActivity.this, FinalizarActivity.class);
                 intent.putExtra("valorTotal", String.valueOf(valorTotal));
                 startActivity(intent);

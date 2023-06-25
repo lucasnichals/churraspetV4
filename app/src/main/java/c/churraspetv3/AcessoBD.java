@@ -109,6 +109,23 @@ public class AcessoBD extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
+    public boolean verificarUsuario(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+        try {
+            String query = "SELECT * FROM TABELA_USUARIO WHERE USUARIO_NOME = ?";
+            cursor = db.rawQuery(query, new String[]{username});
+            if (cursor != null && cursor.getCount() > 0) {
+                return true;
+            }
+            return false;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+    }
     public boolean adicionarUsuario(Usuario usuario) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -131,31 +148,12 @@ public class AcessoBD extends SQLiteOpenHelper {
         return result;
     }
 
-    public boolean verificarUsuario(String username) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = null;
-        try {
-            String query = "SELECT * FROM TABELA_USUARIO WHERE USUARIO_NOME = ?";
-            cursor = db.rawQuery(query, new String[]{username});
-            if (cursor != null && cursor.getCount() > 0) {
-                return true;
-            }
-            return false;
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-            db.close();
-        }
-    }
-
     public boolean registrarVenda(int usuarioId, int produtoId, int quantidade) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(USUARIO_ID, usuarioId);
         contentValues.put(PRODUTO_ID, produtoId);
         long inserirSucedido = db.insert(TABELA_VENDAS, null, contentValues);
-
         if (inserirSucedido != -1) {
             String whereClause = PRODUTO_ID + " = ?";
             String[] whereArgs = {String.valueOf(produtoId)};
@@ -176,9 +174,7 @@ public class AcessoBD extends SQLiteOpenHelper {
         String selection = USUARIO_NOME + " = ? AND " + USUARIO_SENHA + " = ?";
         String[] selectionArgs = {nomeUsuario, senhaUsuario};
         Cursor cursor = db.query(TABELA_USUARIO, columns, selection, selectionArgs, null, null, null);
-
-        int usuarioId = -1;
-
+        int usuarioId = 1;
         if (cursor.moveToFirst()) {
             usuarioId = cursor.getInt(cursor.getColumnIndex(USUARIO_ID));
         }
