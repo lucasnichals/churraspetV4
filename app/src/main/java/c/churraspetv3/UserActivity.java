@@ -19,11 +19,11 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
         getSupportActionBar().hide();
         Button btn_minhas_compras = findViewById(R.id.btn_compras);
-        ListView listViewCompras = findViewById(R.id.lv_compras);
         btn_minhas_compras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(UserActivity.this, ComprasActivity.class);
+                startActivity(intent);
             }
         });
     }

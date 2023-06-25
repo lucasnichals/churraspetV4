@@ -187,4 +187,24 @@ public class AcessoBD extends SQLiteOpenHelper {
         return usuarioId;
     }
 
+    public List<String> mostraCompras() {
+        List<String> compras = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABELA_VENDAS, null);
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int vendaId = cursor.getInt(cursor.getColumnIndex(VENDA_ID));
+                @SuppressLint("Range") int usuarioId = cursor.getInt(cursor.getColumnIndex(USUARIO_ID));
+                @SuppressLint("Range") int produtoId = cursor.getInt(cursor.getColumnIndex(PRODUTO_ID));
+                String compra = "Venda ID: " + vendaId +
+                        ", Usuário ID: " + usuarioId +
+                        ", Produto ID: " + produtoId;
+                compras.add(compra);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return compras;
+    }
 }
+
